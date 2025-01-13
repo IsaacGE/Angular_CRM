@@ -7,4 +7,12 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\angular_crm.client\</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\core\interceptors\" />
+    <Folder Include="src\app\core\guards\" />
+    <Folder Include="src\app\core\services\" />
+    <Folder Include="src\app\features\" />
+    <Folder Include="src\app\shared\" />
+    <Folder Include="src\assets\" />
+  </ItemGroup>
 </Project>
