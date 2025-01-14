@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular_CRM.Server", "Angul
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "angular_crm.client", "angular_crm.client\angular_crm.client.esproj", "{BB04B534-32B1-4EF8-A359-E60F4104B19B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular_CRM.DataServices", "Angular_CRM.DataServices\Angular_CRM.DataServices.csproj", "{779CBAC7-C6B4-4B09-965D-875EF1FAA53F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{BB04B534-32B1-4EF8-A359-E60F4104B19B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB04B534-32B1-4EF8-A359-E60F4104B19B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB04B534-32B1-4EF8-A359-E60F4104B19B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{779CBAC7-C6B4-4B09-965D-875EF1FAA53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{779CBAC7-C6B4-4B09-965D-875EF1FAA53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{779CBAC7-C6B4-4B09-965D-875EF1FAA53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{779CBAC7-C6B4-4B09-965D-875EF1FAA53F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

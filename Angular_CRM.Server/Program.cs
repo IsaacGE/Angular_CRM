@@ -1,9 +1,38 @@
-var builder = WebApplication.CreateBuilder(args);
+using Angular_CRM.DataServices.DBContext;
+using Angular_CRM.DataServices.Statics;
+using log4net.Config;
+using log4net;
+using Microsoft.EntityFrameworkCore;
+using Angular_CRM.Server.Helpers;
 
-// Add services to the container.
+
+var builder = WebApplication.CreateBuilder(args);
+var env = builder.Environment.EnvironmentName;
+var logRepository = LogManager.GetRepository(System.Reflection.Assembly.GetEntryAssembly());
+XmlConfigurator.Configure(logRepository, new FileInfo(Path.Combine(AppContext.BaseDirectory, $"log4net.{env}.config")));
+
+var log = new Logger();
+
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{env}.json", optional: true, reloadOnChange: true)
+    .AddEnvironmentVariables();
+
+Values.DefaultConnection = builder.Configuration.GetConnectionString("DefaultConnection") ?? "";
+
+
+if (string.IsNullOrEmpty(Values.DefaultConnection))
+{
+    log.Error("Default Connection was not found in the appsettings file or has no value.");
+    throw new NullReferenceException("There was an error on start the application, see the logs for more information.");
+}
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(Values.DefaultConnection)
+);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -26,5 +55,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
+
+log.Info("API Server Started successfully");
 
 app.Run();
