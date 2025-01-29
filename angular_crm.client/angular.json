@@ -37,8 +37,8 @@
               }
             ],
             "styles": [
-              "./node_modules/mdb-ui-kit/css/mdb.min.css",
               "./node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "src/styles/theme.scss",
               "src/styles/styles.css"
             ],
             "scripts": []
@@ -100,7 +100,7 @@
               }
             ],
             "styles": [
-              "./node_modules/mdb-ui-kit/css/mdb.min.css",
+              "@angular/material/prebuilt-themes/magenta-violet.css",
               "./node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles/styles.css"
             ],
